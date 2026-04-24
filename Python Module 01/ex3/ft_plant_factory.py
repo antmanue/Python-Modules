@@ -6,7 +6,7 @@ class Plant:
         self.growth_rate = growth_rate
 
     def show(self) -> None:
-        print(f"Created: {self.name.capitalize()}: "
+        print(f"{self.name.capitalize()}: "
               f"{self.height:.1f}cm, {self.current_age} days old")
 
     def age(self) -> None:
@@ -24,7 +24,9 @@ def main() -> None:
 
     garden = [rose_plant, oak_plant, cactus_plant, sunflower_plant, fern_plant]
     
+    print("=== Plant Factory Output ===")
     for plant in garden:
+        print("Created: ", end="")
         plant.show()
 
 if __name__ == "__main__":
