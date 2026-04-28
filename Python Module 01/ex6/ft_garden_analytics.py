@@ -4,23 +4,6 @@ class Plant:
         self._grow_rate = grow_rate
         self._stats = Plant._Stats()
     
-class _Stats:
-    def __init__(self) -> None:
-        self._grow_count = 0
-        self._age_count = 0
-        self._show_count = 0
-
-    def increment_grow():
-        self._grow_count += 1
-
-    def increment_age():
-        self._age_count += 1
-
-    def increment_show():
-        self._show_count += 1
-
-    def display() -> None:
-        return f"Stats: {self._grow_count} grow, {self._age_count} age, {self._show_count} show"
 
         if height < 0:
             self._height = 0.0
@@ -35,6 +18,27 @@ class _Stats:
             print("Age update rejected")
         else:
             self._current_age = current_age
+        
+    class _Stats:
+        def __init__(self) -> None:
+            self._grow_count = 0
+            self._age_count = 0
+            self._show_count = 0
+
+        def increment_grow(self) -> None:
+            self._grow_count += 1
+
+        def increment_age(self) -> None:
+            self._age_count += 1
+
+        def increment_show(self) -> None:
+            self._show_count += 1
+
+        def display(self) -> str:
+            return f"Stats: {self._grow_count} grow, {self._age_count} age, {self._show_count} show"
+
+    def get_stats(self) -> str:
+        return self._stats.display()
 
     @classmethod
     def create_anonymous(cls) -> 'Plant':
@@ -90,6 +94,12 @@ class Flower(Plant):
         self._color = color
         self._has_bloomed = False
 
+    class Seed(Plant._Stats):
+        def __init__(self) -> None:
+
+        def get_name(self) -> str:
+
+
     def show(self) -> None:
         super().show()
         print(f"Color: {self._color}")
@@ -107,12 +117,25 @@ class Tree(Plant):
     def __init__(self, name: str, height: float, current_age: int, grow_rate: float, trunk_diameter: float):
         super().__init__(name, height, current_age, grow_rate)
         self._trunk_diameter = trunk_diameter
+    
+    class _TreeStats(Plant._Stats):
+        def __init__(self) -> None:
+            super().__init__()
+            self._shade_count = 0 
+    
+        def increment_shade(self) -> None:
+            self._shade_count += 1
+
+        def display() -> str:
+            return 
+
 
     def show(self) -> None:
         super().show()
         print(f"Trunk diameter: {self._trunk_diameter}cm")
 
     def produce_shade(self) -> None:
+        self._stats.increment_shade()
         print(f"Tree {self._name.capitalize()} now produces a shade of {self._height:.1f}cm "
               f"long and {self._trunk_diameter:.1f}cm wide")
 
