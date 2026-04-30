@@ -1,5 +1,5 @@
 class Plant:
-    def __init__ (self, name: str, height: float, current_age: int, grow_rate: float) -> None:
+     def __init__ (self, name: str, height: float, current_age: int, grow_rate: float) -> None:
         self._name = name
         self._grow_rate = grow_rate
         self._stats = Plant._Stats()
@@ -126,8 +126,8 @@ class Tree(Plant):
         def increment_shade(self) -> None:
             self._shade_count += 1
 
-        def display() -> str:
-            return 
+        def display(self) -> str:
+            return super().display() + f"self.{_shade_count} shade"
 
 
     def show(self) -> None:
@@ -158,4 +158,4 @@ class Vegetable(Plant):
     def show(self) -> None:
         super().show()
         print(f"Harvest season: {self._harvest_season}")
-        print(f"Nutritional Value: {self._nutritional_value}")
+        print(f"Nutritional alue: {self._nutritional_value}")
