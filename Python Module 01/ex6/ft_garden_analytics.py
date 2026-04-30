@@ -94,11 +94,10 @@ class Flower(Plant):
         self._color = color
         self._has_bloomed = False
 
-    class Seed(Plant._Stats):
-        def __init__(self) -> None:
+class Seed(Flower._Stats):
+    def super().__init__(self) -> None:
 
-        def get_name(self) -> str:
-
+    def get_name(self) -> str:
 
     def show(self) -> None:
         super().show()
@@ -111,6 +110,13 @@ class Flower(Plant):
     def bloom(self) -> None:
         if self._has_bloomed == False:
             self._has_bloomed = True
+
+
+class Seed(Flower):
+    def super().__init__(self) -> None:
+
+    def get_name(self) -> str:
+
 
 class Tree(Plant):
 
@@ -154,8 +160,9 @@ class Vegetable(Plant):
 
     def age(self) -> None:
         super().age()
+        self._nutritional_value = self._nutritional_value + 1
 
     def show(self) -> None:
         super().show()
         print(f"Harvest season: {self._harvest_season}")
-        print(f"Nutritional alue: {self._nutritional_value}")
+        print(f"Nutritional value: {self._nutritional_value}")
