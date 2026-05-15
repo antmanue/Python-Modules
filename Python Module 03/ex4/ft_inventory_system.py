@@ -1,6 +1,6 @@
 import sys
 
-def dict_build() -> None:
+def dict_build() -> dict:
     inventory = {}
 
     for i in range(1, len(sys.argv)): 
@@ -11,21 +11,23 @@ def dict_build() -> None:
             item, str_quantity = param.split(':')
             quantity = int(str_quantity)
             if item in inventory:
-                print(f"Redundant item '{item}' discarding")
+                print(f"Redundant item '{item}' - discarding")
                 continue
             inventory[item] = quantity
 
 
         except ValueError as e:
             if str(e) == "syntax":
-                print(f"Error invalid parameter '{param}'")
+                print(f"Error - invalid parameter '{param}'")
             else:
-                print(f"Quantity error for '{item}: {e}'")
+                print(f"Quantity error for '{item}': {e}")
     return inventory
 
-def main():
+def main() -> None:
     print(f"=== Inventory System Analysis ===")
     my_inventory = dict_build()
+    if not my_inventory:
+        return
     total_qty = sum(my_inventory.values())
     most_item = ""
     least_item = ""
@@ -43,11 +45,10 @@ def main():
         if min_qty == -1 or quantity < min_qty:
             min_qty = quantity
             least_item = item
-    print(f"Item most abundant {most_item} with quantity: {max_qty}")
-    print(f"Item least abundant {least_item} with quantity: {min_qty}")
-    my_inventory.update:({'magic_item: 1'})
+    print(f"Item most abundant: {most_item} with quantity {max_qty}")
+    print(f"Item least abundant: {least_item} with quantity {min_qty}")
+    my_inventory.update({'magic_item': 1})
     print(f"Updated inventory: {my_inventory}")
-
 
 if __name__ == "__main__":
     main()
