@@ -3,7 +3,7 @@ import typing
 
 def gen_event() -> typing.Generator[tuple[str, str], None, None]:
     players = ["Alice", "Bob", "Charlie", "Dylan"]
-    actions = ["run", "eat", "sleep", "grab", "move", "climb", "swim", "release"]
+    actions = ["run", "eat", "sleep", "grab", "move", "climb", "swim", "release", "use"]
 
     while True:
         rand_tuple = (random.choice(players), random.choice(actions))
@@ -15,16 +15,19 @@ def main() -> None:
     
     event = gen_event()
     ten_event_list = [] 
+    
     for i in range(0,1000):
         p_name, p_action = next(event)
         print(f"Event {i}: Player {p_name.lower()} did action {p_action}")
+    
     for i in range(0,10):
         p_name, p_action = next(event)
         ten_event_list.append((p_name.lower(), p_action))
     print(f"Built list of 10 events: {ten_event_list}")
+    
     consumer = consume_event(ten_event_list)
-    for event in consumer:
-        print(f"Got event from list: {event}")
+    for evt in consumer:
+        print(f"Got event from list: {evt}")
         print(f"Remains in list: {ten_event_list}")
 
     
