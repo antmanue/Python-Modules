@@ -2,15 +2,18 @@ import sys
 
 def input_check() -> None:
     if len(sys.argv) < 2:
-        print(f"Usage: ft_ancient_text.py <file>")
+        print("Usage: ft_ancient_text.py <file>")
         return
     print("=== Cyber Archives Recovery ===")
     print(f"Accessing file '{sys.argv[1]}'")
     
+    
     try:
         file = open(sys.argv[1])
-        print(f"{file.read()}")
+        print("---")
+        print(f"{file.read()}", end="")
         file.close()
+        print("---")
         print(f"File '{sys.argv[1]}' closed.")
     except Exception as err:
         print(f"Error opening file '{sys.argv[1]}': {err}")
