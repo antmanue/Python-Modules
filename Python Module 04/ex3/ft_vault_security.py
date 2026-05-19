@@ -18,7 +18,7 @@ def secure_archive(file_name: str, action: str = "",text_to_save: str = "") -> t
     
 def main() -> None:
     print("=== Cyber Archives Security ===")
-    print("\nUsing 'secure_archive' to read from a nonexistent file:")
+    print("\nUsing 'secure_archive' to read from an nonexistent file:")
     print(secure_archive("/not/existing/file", "r"))
     print("\nUsing 'secure_archive' to read from an inaccessible file:")
     print(secure_archive("/home/antarva/Documents/42_Porto/Common_Core/Milestone_02/Python-Modules/Python Module 04/ex3/denied.txt", "r"))
