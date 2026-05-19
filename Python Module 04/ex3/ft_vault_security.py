@@ -18,11 +18,11 @@ def secure_archive(file_name: str, action: str = "",text_to_save: str = "") -> t
     
 def main() -> None:
     print("=== Cyber Archives Security ===")
-    print("\nUsing 'secure_archive' to read from nonexistent file:")
+    print("\nUsing 'secure_archive' to read from a nonexistent file:")
     print(secure_archive("/not/existing/file", "r"))
-    print("\nUsing 'secure_archive' to read from inaccessible file:")
+    print("\nUsing 'secure_archive' to read from an inaccessible file:")
     print(secure_archive("/home/antarva/Documents/42_Porto/Common_Core/Milestone_02/Python-Modules/Python Module 04/ex3/denied.txt", "r"))
-    print("\nUsing 'secure_archive' to read from regular file:")
+    print("\nUsing 'secure_archive' to read from a regular file:")
     print(secure_archive("/home/antarva/Documents/42_Porto/Common_Core/Milestone_02/Python-Modules/Python Module 04/ex3/ancient_fragment.txt", "r"))
     print("\nUsing 'secure_archive' to write previous content to a new file:")
     print(secure_archive("/home/antarva/Documents/42_Porto/Common_Core/Milestone_02/Python-Modules/Python Module 04/ex3/new_vault_file.txt", "w", text_to_save = "Novo teste!"))
