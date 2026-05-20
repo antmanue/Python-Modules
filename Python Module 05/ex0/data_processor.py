@@ -71,5 +71,10 @@ def main() -> None:
 
     print(f"Trying to validate input 'Hello': {numeric_process.validate('Hello')} ")
 
+    try:
+
+    except:
+
+
 if __name__ == "__main__":
     main()
