@@ -3,7 +3,7 @@ def ft_count_harvest_recursive() -> None:
 
     def counter(i: int):
         if i <= days_to:
-            print("Day ", i)
+            print("Day", i)
             counter(i + 1)
         else:
             print("Harvest time! ")
