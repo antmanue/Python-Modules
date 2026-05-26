@@ -16,13 +16,10 @@ class Plant:
     def grow(self, extra_cm: float) -> None:
         self.height += extra_cm
 
-rose_plant = Plant("Rose", 25, 30)
-#sunflower_plant = Plant("Sunflower", 80, 45)
-#cactus_plant = Plant("Cactus", 15, 120)
-#garden = [rose_plant, sunflower_plant, cactus_plant]
-
 
 def main() -> None:
+    rose_plant = Plant("Rose", 25, 30)
+
     print("=== Garden Plant Registry ===")
     rose_plant.show()
     initial_height = rose_plant.height
@@ -33,6 +30,7 @@ def main() -> None:
         rose_plant.show()
     total_growth = round(rose_plant.height - initial_height, 1)
     print(f"Growth this week: {total_growth}cm")
+
 
 if __name__ == "__main__":
     main()
