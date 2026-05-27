@@ -4,7 +4,7 @@ class Plant:
         name: str,
         height: float,
         current_age: int,
-        grow_rate: float,
+        grow_rate: float = 0.8,
     ) -> None:
         self._name = name
         self._grow_rate = grow_rate
