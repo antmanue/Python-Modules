@@ -42,7 +42,7 @@ class NumericProcessor(DataProcessor):
             self.struct_list.append((self.counter, converted))
             self.counter = self.counter + 1
 
-class StringProcessor(DataProcessor):
+class TextProcessor(DataProcessor):
 
     def validate(self, data: typing.Any) -> bool:
         if isinstance(data, str):
@@ -111,7 +111,7 @@ def main() -> None:
 
     print()
     print("Testing Text Processor...")
-    text_process = StringProcessor()
+    text_process = TextProcessor()
 
     print(f"Trying to validate input '42': {text_process.validate(42)}")
     
