@@ -40,7 +40,7 @@ class Plant:
             self._show_count += 1
 
         def display(self) -> str:
-            return (f"Stats: {self._grow_count} grow,"
+            return (f"Stats: {self._grow_count} grow, "
                     f"{self._age_count} age, {self._show_count} show")
 
     def get_stats(self) -> str:
@@ -58,7 +58,7 @@ class Plant:
             return False
 
     def show(self) -> None:
-        print(f"{self._name.capitalize()}: {self._height:.1f}cm,"
+        print(f"{self._name.capitalize()}: {self._height:.1f}cm, "
               f"{self._current_age} days old")
         self._stats.increment_show()
 
