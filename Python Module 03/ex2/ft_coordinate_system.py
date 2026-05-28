@@ -1,4 +1,6 @@
 import math
+
+
 def input_str() -> tuple:
     while True:
         string = input("Enter new coordinates as floats in format 'x,y,z': ")
@@ -18,10 +20,11 @@ def input_str() -> tuple:
         except ValueError as e:
             print(f"Error on parameter '{clean_p}': {e}")
 
+
 def main() -> None:
     print("=== Game Coordinate System ===")
     print()
-    print(f"Get a first set of coordinates")
+    print("Get a first set of coordinates")
     my_tuple1 = input_str()
     x1, y1, z1 = my_tuple1
     print(f"Got a first tuple: {my_tuple1}")
@@ -30,7 +33,7 @@ def main() -> None:
     print(f"It includes: X={x1}, Y={y1}, Z={z1}")
     print(f"Distance to center: {dist:.4f}")
     print()
-    print(f"Get a second set of coordinates")
+    print("Get a second set of coordinates")
     my_tuple2 = input_str()
     x2, y2, z2 = my_tuple2
     dist2p = math.sqrt(((x2-x1)**2) + ((y2-y1)**2) + ((z2-z1)**2))

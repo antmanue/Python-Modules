@@ -1,9 +1,10 @@
 import sys
 
+
 def dict_build() -> dict:
     inventory = {}
 
-    for i in range(1, len(sys.argv)): 
+    for i in range(1, len(sys.argv)):
         param = sys.argv[i]
         try:
             if ':' not in param:
@@ -15,7 +16,6 @@ def dict_build() -> dict:
                 continue
             inventory[item] = quantity
 
-
         except ValueError as e:
             if str(e) == "syntax":
                 print(f"Error - invalid parameter '{param}'")
@@ -23,8 +23,9 @@ def dict_build() -> dict:
                 print(f"Quantity error for '{item}': {e}")
     return inventory
 
+
 def main() -> None:
-    print(f"=== Inventory System Analysis ===")
+    print("=== Inventory System Analysis ===")
     my_inventory = dict_build()
     if not my_inventory:
         return
@@ -49,6 +50,7 @@ def main() -> None:
     print(f"Item least abundant: {least_item} with quantity {min_qty}")
     my_inventory.update({'magic_item': 1})
     print(f"Updated inventory: {my_inventory}")
+
 
 if __name__ == "__main__":
     main()

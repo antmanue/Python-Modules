@@ -1,14 +1,18 @@
 import random
 
-achivement_list = ["Crafting Genius", "World Savior", "Master Explorer",
-"Collector Supreme", "Untouchable", "Boss Slayer",
-"Strategist", "Unstoppable", "Speed Runner", "Survivor"
-]
+achivement_list = [
+                   "Crafting Genius", "World Savior", "Master Explorer",
+                   "Collector Supreme", "Untouchable", "Boss Slayer",
+                   "Strategist", "Unstoppable", "Speed Runner", "Survivor",
+                   ]
+
 
 def gen_player_achievements() -> set:
     player_achivements_number = random.randint(1, len(achivement_list))
-    random_achivments = set(random.sample(achivement_list, player_achivements_number))
+    random_achivments = set(random.sample(achivement_list,
+                            player_achivements_number))
     return random_achivments
+
 
 def main() -> None:
     print("=== Achievement Tracker System ===\n")
@@ -49,6 +53,7 @@ def main() -> None:
     print(f"Bob is missing: {achiv_bob_diff_all}")
     print(f"Charlie is missing: {achiv_charlie_diff_all}")
     print(f"Dylan is missing: {achiv_dylan_diff_all}")
+
 
 if __name__ == "__main__":
     main()

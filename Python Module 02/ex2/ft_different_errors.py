@@ -15,18 +15,12 @@ def test_error_types() -> None:
         print(f"Testing operation {i}...")
         try:
             garden_operations(i)
-        except ValueError as error:
-            print(f"Caught ValueError: {error}")
-
-        except ZeroDivisionError as error:
-            print(f"Caught ZeroDivisionError: {error}")
-
-        except FileNotFoundError as error:
-            print(f"Caught FileNotFoundError: {error}")
-
-        except TypeError as error:
-            print(f"Caught TypeError: {error}")
-
+        except (ValueError,
+                ZeroDivisionError,
+                FileNotFoundError,
+                TypeError,
+                ) as error:
+            print(f"Caught {error.__class__.__name__}: {error}")
         else:
             print("Operation completed successfully")
         i = i + 1
