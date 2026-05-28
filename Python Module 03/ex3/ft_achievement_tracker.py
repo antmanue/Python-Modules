@@ -7,7 +7,7 @@ achivement_list = [
                    ]
 
 
-def gen_player_achievements() -> set:
+def gen_player_achievements() -> set[str]:
     player_achivements_number = random.randint(1, len(achivement_list))
     random_achivments = set(random.sample(achivement_list,
                             player_achivements_number))
@@ -36,9 +36,9 @@ def main() -> None:
     achiv_dylan_diff_all = set(achivement_list).difference(dylan)
 
     print(f"Player Alice: {alice}")
-    print(f"Player Bob : {bob}")
-    print(f"Player Charlie : {charlie}")
-    print(f"Player Dylan : {dylan}")
+    print(f"Player Bob: {bob}")
+    print(f"Player Charlie: {charlie}")
+    print(f"Player Dylan: {dylan}")
     print()
     print(f"All distinct achievements: {achiv_all_dist}")
     print()

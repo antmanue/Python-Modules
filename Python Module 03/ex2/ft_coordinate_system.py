@@ -1,31 +1,35 @@
 import math
 
 
-def input_str() -> tuple:
+def get_players_pos() -> tuple[float, float, float]:
     while True:
         string = input("Enter new coordinates as floats in format 'x,y,z': ")
-        split_string = string.split(',')
-        if len(split_string) != 3:
+        try:
+            x_str, y_str, z_str = string.split(',')
+        except ValueError:
             print("Invalid syntax")
             continue
+
         try:
-            current_coord = []
-            for p in split_string:
-                clean_p = p.strip()
-                coordinates = float(clean_p)
-                current_coord.append(coordinates)
-            if len(current_coord) == 3:
-                return tuple(current_coord)
-            print("Invalid syntax")
-        except ValueError as e:
-            print(f"Error on parameter '{clean_p}': {e}")
+            clean_p = x_str.strip()
+            x = float(clean_p)
+
+            clean_p = y_str.strip()
+            y = float(clean_p)
+
+            clean_p = z_str.strip()
+            z = float(clean_p)
+
+            return (x, y, z)
+        except ValueError as err:
+            print(f"Error on parameter '{clean_p}': {err}")
 
 
 def main() -> None:
     print("=== Game Coordinate System ===")
     print()
     print("Get a first set of coordinates")
-    my_tuple1 = input_str()
+    my_tuple1 = get_players_pos()
     x1, y1, z1 = my_tuple1
     print(f"Got a first tuple: {my_tuple1}")
     coord_total1 = ((x1**2) + (y1**2) + (z1**2))
@@ -34,7 +38,7 @@ def main() -> None:
     print(f"Distance to center: {dist:.4f}")
     print()
     print("Get a second set of coordinates")
-    my_tuple2 = input_str()
+    my_tuple2 = get_players_pos()
     x2, y2, z2 = my_tuple2
     dist2p = math.sqrt(((x2-x1)**2) + ((y2-y1)**2) + ((z2-z1)**2))
     print(f"Distance between the 2 sets of coordinates: {dist2p:.4f}")

@@ -4,23 +4,22 @@ import sys
 def dict_build() -> dict:
     inventory = {}
 
-    for i in range(1, len(sys.argv)):
-        param = sys.argv[i]
+    for param in sys.argv[1:]:
+        if ':' not in param:
+            print(f"Error invalid parameter {param}")
+            continue
+
         try:
-            if ':' not in param:
-                raise ValueError("syntax")
             item, str_quantity = param.split(':')
             quantity = int(str_quantity)
+
             if item in inventory:
                 print(f"Redundant item '{item}' - discarding")
                 continue
             inventory[item] = quantity
 
         except ValueError as e:
-            if str(e) == "syntax":
-                print(f"Error - invalid parameter '{param}'")
-            else:
-                print(f"Quantity error for '{item}': {e}")
+            print(f"Quantity error for '{item}': {e}")
     return inventory
 
 
