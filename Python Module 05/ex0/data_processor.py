@@ -4,7 +4,7 @@ import typing
 class DataProcessor(abc.ABC):
     
     def __init__(self) -> None:
-        self.struct_list = []
+        self.struct_list: list[tuple[int, str]] = []
         self.counter = 0
 
     @abc.abstractmethod
@@ -32,10 +32,10 @@ class NumericProcessor(DataProcessor):
 
             return True
         return False
-
+    # NumericProcessor
     def ingest(self, data: typing.Any) -> None:
         if not self.validate(data):
-            raise ValueError ("Improper numeric data")
+            raise ValueError("Improper numeric data")
         items = data if isinstance(data, list) else [data]
         for item in items:
             converted = str(item)
@@ -54,10 +54,10 @@ class TextProcessor(DataProcessor):
 
             return True
         return False
-
-    def ingest(self, data: typing.Any) -> None:
+    # TextProcessor
+    def ingest(self, data: str | list[str]) -> None:
         if not self.validate(data):
-            raise ValueError ("Improper string data")
+            raise ValueError("Improper string data")
         items =  data if isinstance(data, list) else [data]
         for item in items:
             self.struct_list.append((self.counter, item))
@@ -74,10 +74,10 @@ class LogProcessor(DataProcessor):
                 
             return True
         return False
-
-    def ingest(self, data: typing.Any) -> None:
+    # LogProcessor
+    def ingest(self, data: dict[str, str] | list[dict[str, str]]) -> None:
         if not self.validate(data):
-            raise ValueError ("Improper log data")
+            raise ValueError("Improper log data")
         items =  data if isinstance(data, list) else [data]
         for item in items:
             converted = f"{item['log_level']}: {item['log_message']}"
