@@ -1,5 +1,6 @@
 import sys
 
+
 def process_archive() -> None:
     if len(sys.argv) < 2:
         print("Usage: ft_stream_management.py <file>")
@@ -7,7 +8,7 @@ def process_archive() -> None:
 
     print("=== Cyber Archives Recovery & Preservation ===")
     print(f"Accessing file '{sys.argv[1]}'")
-    
+
     try:
         current_file = sys.argv[1]
         file = open(sys.argv[1])
@@ -32,7 +33,7 @@ def process_archive() -> None:
             line_with_hash = f"{line}#"
             print(line_with_hash)
             transformed_lines.append(line_with_hash)
-        
+
         print()
         print("---")
 
@@ -44,7 +45,7 @@ def process_archive() -> None:
         if not new_file:
             print("Not saving data.")
             return
-        
+
         print(f"Saving data to '{new_file}'")
 
         content_to_save = "\n".join(transformed_lines) + "\n"
@@ -55,7 +56,8 @@ def process_archive() -> None:
         print(f"Data saved in file '{new_file}'.")
 
     except Exception as err:
-        sys.stderr.write(f"[STDERR] Error opening file '{current_file}': {err}\n")
+        sys.stderr.write(f"[STDERR] Error opening file "
+                         f"'{current_file}': {err}\n")
         if current_file != sys.argv[1]:
             print("Data not saved.")
 

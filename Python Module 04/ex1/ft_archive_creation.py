@@ -1,13 +1,13 @@
 import sys
 
+
 def process_archive() -> None:
     if len(sys.argv) < 2:
         print("Usage: ft_archive_creation.py <file>")
         return
     print("=== Cyber Archives Recovery & Preservation ===")
     print(f"Accessing file '{sys.argv[1]}'")
-    
-    
+
     try:
         file = open(sys.argv[1])
         original_txt = file.read()
@@ -30,7 +30,7 @@ def process_archive() -> None:
             line_with_hash = f"{line}#"
             print(line_with_hash)
             transformed_lines.append(line_with_hash)
-        
+
         print()
         print("---")
 
@@ -38,7 +38,7 @@ def process_archive() -> None:
         if not new_file:
             print("Not saving data.")
             return
-        
+
         print(f"Saving data to '{new_file}'")
 
         content_to_save = "\n".join(transformed_lines) + "\n"
