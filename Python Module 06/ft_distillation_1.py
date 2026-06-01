@@ -1,8 +1,8 @@
 import alchemy
 
 if __name__ == "__main__":
-    print("=== Distillation ===")
-    print("Using 'import alchemy' structure to acess potions")
+    print("=== Distillation 1 ===")
+    print("Using 'import alchemy' structure to access potions")
 
     strength_result = alchemy.strength_potion()
     print(f"Testing strength_potion: {strength_result}")
