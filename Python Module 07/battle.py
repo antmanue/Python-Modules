@@ -1,6 +1,8 @@
 from ex0 import FlameFactory, AquaFactory
+from ex0.creature import CreatureFactory
 
-def test_factory(factory) -> None:
+
+def test_factory(factory: CreatureFactory) -> None:
     print("Testing factory")
     firebase = factory.create_base()
     print(f"{firebase.describe()}")
@@ -10,7 +12,8 @@ def test_factory(factory) -> None:
     print(f"{fireevo.describe()}")
     print(f"{fireevo.attack()}")
 
-def test_battle(factory1, factory2) -> None:
+
+def test_battle(factory1: CreatureFactory, factory2: CreatureFactory) -> None:
     print("Testing battle")
     creature1 = factory1.create_base()
     creature2 = factory2.create_base()
@@ -20,6 +23,7 @@ def test_battle(factory1, factory2) -> None:
     print(" fight!")
     print(f"{creature1.attack()}")
     print(f"{creature2.attack()}")
+
 
 if __name__ == "__main__":
     flame_fac = FlameFactory()
