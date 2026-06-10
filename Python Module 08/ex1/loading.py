@@ -1,6 +1,7 @@
 import importlib
 import sys
 
+
 def check_dependencies() -> bool:
     print("LOADING STATUS: Loading programs...")
     print("Checking dependencies:")
@@ -19,7 +20,7 @@ def check_dependencies() -> bool:
         try:
             module = importlib.import_module(i)
             version = getattr(module, "__version__", "unknown")
-            print(f"[OK] {i} ({version} readiness_messages[i]")
+            print(f"[OK] {i} ({version} {readiness_messages[i]}")
         except ModuleNotFoundError as err:
             print(f"[ERROR] Dependency missing: {err}")
             print("Use pip install -r requirements.txt ou poetry install")
@@ -29,13 +30,14 @@ def check_dependencies() -> bool:
         print("Analyzing Matrix data...")
         print("Processing 1000 data points")
         return False
-    
+
     return True
+
 
 def run_analysis() -> None:
 
-    import matplotlib.pyplot as plt
-    import numpy as np
+    import matplotlib.pyplot as plt  # type: ignore[import-not-found]
+    import numpy as np  # type: ignore[import-not-found]
 
     print("Analyzing Matrix data...")
     print("Processing 1000 data points...")
@@ -58,11 +60,13 @@ def run_analysis() -> None:
     print("Analysis complete!")
     print(f"Results saved to: {output_file}")
 
+
 def main() -> None:
     if check_dependencies():
         run_analysis()
     else:
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
