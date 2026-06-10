@@ -37,7 +37,7 @@ def main() -> None:
         print("The machine can see everything you install.")
         print()
         print("To enter the construct, run:")
-        print("python -m venv matrix-env")
+        print("python -m venv matrix_env")
         print("source matrix-env/bin/activate # On Unix")
         print(r"matrix_env\Scripts\activate # On Windows")
         print()
